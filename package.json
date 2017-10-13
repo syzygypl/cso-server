@@ -1,0 +1,23 @@
+{
+  "name": "cso-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cloneBackend": "echo \"token -> \" ${GITHUB_AUTH_TOKEN}; git clone https://${GITHUB_AUTH_TOKEN}@github.com/syzygypl/cso-backend.git backend",
+    "cloneClient": "echo \"token -> \" ${GITHUB_AUTH_TOKEN}; git clone https://${GITHUB_AUTH_TOKEN}@github.com/syzygypl/czy-sie-oplaca-react.git client",
+    "installBackend": "cd ./backend; npm i; cd ../",
+    "installClient": "cd ./client; npm i; npm run build; mv ./build ../public; cd ../",
+    "bootstrap": "npm run cloneBackend; npm run cloneClient; npm run installBackend; npm run installClient",
+    "startServers": "node server.js & node backend/api/index.js",
+    "preinstall": "npm run bootstrap"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-basic-auth": "^1.1.2",
+    "http-proxy-middleware": "^0.17.4"
+  }
+}
