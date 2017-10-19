@@ -22,7 +22,7 @@ app.use(apiProxy);
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-  res.sendFile('./build/index.html', { root: __dirname });
+  res.sendFile('./public/index.html', { root: __dirname });
 });
 
 app.listen(process.env.PORT || 3000, function () {
