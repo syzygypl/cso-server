@@ -11,6 +11,7 @@
     "installClient": "cd ./client; npm i; npm run build; mv ./build ../public; cd ../",
     "bootstrap": "npm run cloneBackend; npm run cloneClient; npm run installBackend; npm run installClient",
     "startServers": "node server.js & node backend/api/index.js",
+    "dailySync": "cd ./backend/sync; node index.js",
     "preinstall": "npm run bootstrap"
   },
   "author": "",
