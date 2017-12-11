@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const proxy = require('http-proxy-middleware');
 const basicAuth = require('express-basic-auth');
+const enforceSsl = require('express-sslify');
 
 const apiProxy = proxy(
   '/api',
@@ -10,6 +11,8 @@ const apiProxy = proxy(
     pathRewrite: { '^/api' : '' }
   }
 );
+
+app.use(enforceSsl.HTTPS({ trustProtoHeader: true }));
 
 app.use(basicAuth({
   users: {
