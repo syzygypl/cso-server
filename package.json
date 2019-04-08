@@ -12,6 +12,7 @@
     "bootstrap": "npm run cloneBackend; npm run cloneClient; npm run installBackend; npm run installClient",
     "startServers": "node server.js & node backend/api/index.js",
     "dailySync": "cd ./backend/sync; node index.js",
+    "dailySync-customCert": "cd ./backend/sync; NODE_EXTRA_CA_CERTS=jira-syzygy-pl-cert.pem node index.js",
     "preinstall": "npm run bootstrap"
   },
   "author": "",
